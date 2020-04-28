@@ -20,6 +20,7 @@ import (
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 	"golang.org/x/sys/windows"
+    "github.com/Peanuttown/tzzGoUtil/log"
 )
 
 var pcapLoaded = false
@@ -249,6 +250,7 @@ func LoadWinPCAP() error {
 	pcapHopenOfflinePtr = mustLoad("pcap_hopen_offline")
 
 	pcapLoaded = true
+    log.Debug("window  LoadWinPCAP")
 	return nil
 }
 
@@ -638,6 +640,7 @@ func (p pcapDevices) addresses() pcapAddresses {
 }
 
 func pcapFindAllDevs() (pcapDevices, error) {
+    log.Debug("windows find all devices")
 	var alldevsp pcapDevices
 	err := LoadWinPCAP()
 	if err != nil {
